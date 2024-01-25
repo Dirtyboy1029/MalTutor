@@ -1,0 +1,47 @@
+[DEFAULT]
+project_root = /home/lhd/Training_robust_Malware_Detector_via_uncertainty/Training
+
+
+[metadata]
+naive_data_pool = /home/public/rmt/heren/experiment/cl-exp/LHD_apk/naive_pool
+
+
+[dataset]
+dataset_name = dataset
+intermediate_directory = %(project_root)s/config
+drebin_malware_dir = /home/public/rmt/heren/experiment/cl-exp/LHD_apk/apk/Robust_model/trainset/drebin/malware
+drebin_benware_dir =/home/public/rmt/heren/experiment/cl-exp/LHD_apk/apk/Robust_model/trainset/drebin/benign
+malradar_malware_dir = /home/public/rmt/heren/experiment/cl-exp/LHD_apk/apk/Robust_model/trainset/malradar/malware
+malradar_benware_dir = /home/public/rmt/heren/experiment/cl-exp/LHD_apk/apk/Robust_model/trainset/malradar/benign
+malradar&genome_malware_dir = /home/public/rmt/heren/experiment/cl-exp/LHD_apk/apk/Robust_model/trainset/malradar/malware
+malradar&genome_benware_dir = /home/public/rmt/heren/experiment/cl-exp/LHD_apk/apk/Robust_model/trainset/malradar/benign
+custom_malware_dir = /home/public/rmt/heren/experiment/cl-exp/LHD_apk/apk/Robust_model/trainset/custom/malware
+custom_benware_dir = /home/public/rmt/heren/experiment/cl-exp/LHD_apk/apk/Robust_model/trainset/custom/benign
+
+[ood]
+malgenome_ood_malware_dir = /home/public/rmt/heren/experiment/cl-exp/LHD_apk/apk/Robust_model/testset/malgenome/malware
+drebin_ood_malware_dir = /home/public/rmt/heren/experiment/cl-exp/LHD_apk/apk/Robust_model/testset/drebin/malware
+amd_ood_malware_dir = /home/public/rmt/heren/experiment/cl-exp/LHD_apk/apk/Robust_model/testset/amd/malware
+adware_ood_malware_dir =  /home/public/rmt/heren/experiment/cl-exp/LHD_apk/apk/Robust_model/testset/Adware
+smsware_ood_malware_dir =  /home/public/rmt/heren/experiment/cl-exp/LHD_apk/apk/Robust_model/testset/Smsware
+scareware_ood_malware_dir =  /home/public/rmt/heren/experiment/cl-exp/LHD_apk/apk/Robust_model/testset/Scareware
+backdoorware_ood_malware_dir =  /home/public/rmt/heren/experiment/cl-exp/LHD_apk/apk/Robust_model/testset/Backdoorware
+ransomware_ood_malware_dir =  /home/public/rmt/heren/experiment/cl-exp/LHD_apk/apk/Robust_model/testset/Ransomware
+cic1719adware_ood_malware_dir =  /home/public/rmt/heren/experiment/cl-exp/LHD_apk/CICDataset/source_apk/CIC1719/adware
+cic1719smsware_ood_malware_dir =  /home/public/rmt/heren/experiment/cl-exp/LHD_apk/CICDataset/source_apk/CIC1719/smsware
+cic1719ransomware_ood_malware_dir =  /home/public/rmt/heren/experiment/cl-exp/LHD_apk/CICDataset/source_apk/CIC1719/ransomware
+cic1719scareware_ood_malware_dir =  /home/public/rmt/heren/experiment/cl-exp/LHD_apk/CICDataset/source_apk/CIC1719/scareware
+cic2020adware_ood_malware_dir =  /home/public/rmt/heren/experiment/cl-exp/LHD_apk/CICDataset/source_apk/MalDroid-2020/Adware
+cic2020bankware_ood_malware_dir =  /home/public/rmt/heren/experiment/cl-exp/LHD_apk/CICDataset/source_apk/MalDroid-2020/Banking
+cic2020riskware_ood_malware_dir =  /home/public/rmt/heren/experiment/cl-exp/LHD_apk/CICDataset/source_apk/MalDroid-2020/Riskware
+cic2020smsware_ood_malware_dir =  /home/public/rmt/heren/experiment/cl-exp/LHD_apk/CICDataset/source_apk/MalDroid-2020/SMS
+cic2020benignware_ood_malware_dir =  /home/public/rmt/heren/experiment/cl-exp/LHD_apk/CICDataset/source_apk/benign/benign
+
+[adv]
+ade_ma_adv_malware_dir = /home/public/rmt/heren/experiment/cl-exp/LHD_apk/apk_adv/ade_ma
+at_adma_adv_malware_dir = /home/public/rmt/heren/experiment/cl-exp/LHD_apk/apk_adv/at_adma
+at_rfgsm_adv_malware_dir = /home/public/rmt/heren/experiment/cl-exp/LHD_apk/apk_adv/at_rfgsm
+at_ma_adv_malware_dir = /home/public/rmt/heren/experiment/cl-exp/LHD_apk/apk_adv/at_ma
+d_ade_ma_adv_malware_dir = /home/public/rmt/heren/experiment/cl-exp/LHD_apk/apk_adv/d_ade_ma
+basic_dnn_adv_malware_dir = /home/public/rmt/heren/experiment/cl-exp/LHD_apk/apk_adv/basic_dnn
+pst_malware_dir = /home/public/rmt/heren/experiment/cl-exp/LHD_apk/apk_adv/pristine_apks
