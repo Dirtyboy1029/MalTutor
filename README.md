@@ -4,7 +4,7 @@
 This code repository our paper titled **MALTUTOR: Enhancing Robustness in DNN-Based Android Malware Detection through Uncertainty-Guided Robust Training**.
  
 ## Overview
-In this paper, we take the first step train the uncertainty estimatin model. Subsequently, we clustered malware samples based on the output of the uncertainty model. Finally, we train a robust model.
+In this paper, we take the first step to train the uncertainty estimatin model. Subsequently, we clustered malware samples based on the output of the uncertainty model. Finally, we train a robust model.
 ## Dependencies:
 We develop the codes on Windows operation system, and run the codes on Ubuntu 20.04. The codes depend on Python 3.8.10. Other packages (e.g., TensorFlow) can be found in the `./requirements.txt`.
 
