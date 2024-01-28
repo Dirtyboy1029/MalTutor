@@ -36,8 +36,7 @@ inter file save to: Traing_robust_Malware_Detector_via_Label_uncertainty/dataset
 
 ## Hyperparameters:
       
-      ###  experiment_type: Type of experiment,training correction model or resultant correction.
-      ###  save_model: Whether to save trained correction models
-      ###  data_type: Data types for training corrective models，(small_drebin,small_multi)
-      ###  train_data_size: The effect of the scale of the training data on the corrective model,[1.0,0.8,0.4,0.2,0.1]
-      ###  banlance: The effect of whether the training data is balanced or not on the corrective model
+      ###  train_data_type: training set type.
+      ###  val_type: training strategy,(self validation,cross validation)
+      ###  n_clusters: the number of clusters for the samples，(3,5,7,9,11)
+      ###  feature_type: target model type, (drebin:deepdrebin,apiseq:droidectc)
