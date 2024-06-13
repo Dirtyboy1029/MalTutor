@@ -11,11 +11,10 @@ from sklearn.cluster import DBSCAN
 import os, argparse
 from sklearn.cluster import KMeans
 
-uc_metrics_set = ['prob', 'entropy', 'kld', 'std', 'max_max2', 'max_min', 'mean_med',
-                  'label_prob', 'nll', 'emd', 'cbs', 'mat', 'eld', 'kld_label']
+uc_metrics_set = [ 'entropy', 'kld', 'std', 'max_max2', 'max_min', 'mean_med',
+                   'nll',  'cbs', 'mat', 'eld', 'kld_label']
 
 no_label_metrics_map = {
-    'prob': None,
     'entropy': None,
     'kld': None,
     'std': None,
@@ -25,10 +24,8 @@ no_label_metrics_map = {
 }
 
 with_label_metrics_map = {
-    'label_prob': None,
     'kld_label': None,
     'nll': None,
-    'emd': None,
     'cbs': None,
     'mat': None,
     'eld': None
