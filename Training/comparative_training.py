@@ -10,10 +10,10 @@ from core.ensemble.vanilla import Vanilla
 import pandas as pd
 
 drebin_cross = [978, 489, 314, 212, 208, ]
-malradar_cross = [1281, 644, 155, 143, 139]
+malradar_cross = [573, 415, 157, 156, 152]
 
 drebin_self = [1424, 798, 507, 439, 335, ]
-malradar_self = [1358, 505, 372, 376, 166]
+malradar_self = [255, 99, 45, 60, 61]
 
 
 def load_curriculum(data_type, n_clusters, val_type, malware_num):
