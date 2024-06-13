@@ -72,7 +72,6 @@ uc_metrics_set = ['prob', 'entropy', 'kld', 'std', 'max_max2', 'max_min', 'mean_
                   'label_prob', 'nll', 'emd', 'cbs', 'mat', 'eld', 'kld_label']
 
 no_label_metrics_map = {
-    'prob': None,
     'entropy': metrics.predictive_entropy,
     'kld': metrics.predictive_kld,
     'std': metrics.predictive_std,
@@ -82,10 +81,8 @@ no_label_metrics_map = {
 }
 
 with_label_metrics_map = {
-    'label_prob': None,
     'kld_label': metrics.prob_label_kld,
     'nll': metrics.nll,
-    'emd': metrics.Wasserstein_distance,
     'cbs': metrics.Chebyshev_distance,
     'mat': metrics.Manhattan_distance,
     'eld': metrics.Euclidean_distance
