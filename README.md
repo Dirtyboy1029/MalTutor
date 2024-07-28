@@ -8,7 +8,7 @@ In this paper, we take the first step to train the uncertainty estimatin model. 
 ## Dependencies:
 We develop the codes on Windows operation system, and run the codes on Ubuntu 20.04. The codes depend on Python 3.8.10. Other packages (e.g., TensorFlow) can be found in the `./requirements.txt`.
 ## Datasets:
-You can find the hashes of the samples used in our experiments in the `config` folder.
+You can find the hashes of the samples used in our experiments in the `Training/config` folder.
 
 ##  Usage
 #### 1. Estimate uncertainty
