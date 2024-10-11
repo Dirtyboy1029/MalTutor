@@ -1,10 +1,10 @@
 tensorflow==2.9.1
-tensorflow-probability==0.15.0
-numpy==1.24.1
-scikit-learn==0.23.0
-pandas>=1.0.4
+tensorflow-probability==0.17.0
+numpy==1.22.1
+scikit-learn==1.0.2
+pandas==1.5.3
 androguard==3.3.5
-absl-py==0.8.1
+absl-py==1.4.0
 # python-magic-bin==0.4.14
 seaborn
 Pillow
