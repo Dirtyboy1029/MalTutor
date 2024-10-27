@@ -1,7 +1,7 @@
 # MALTUTOR
 
 
-This code repository our paper titled **Empowering DNN-Based Android Malware Detection via Uncertainty-Guided Curriculum Learning**.
+This code repository our paper titled **Understanding Model Weaknesses: A Path to Strengthening DNN-Based Android Malware Detection**.
  
 ## Overview
 In this paper, we take the first step to train the uncertainty estimatin model. Subsequently, we clustered malware samples based on the output of the uncertainty model. Finally, we train a robust model.
