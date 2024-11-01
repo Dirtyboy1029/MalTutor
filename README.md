@@ -20,12 +20,10 @@ The structure of the project is organized as follows:
 ├── dataset_reconstruction    # Dataset reconstruction files
 │   ├── encoder_model         # Encoder model files
 │   ├── inter_file            # Intermediate files
-│   ├── __pycache__           # Cached files
 │   ├── sample_classifier.py  # Sample classifier script
 │   ├── uc_feature_extrctor.py# Feature extractor script
 │   ├── uc_metrics_csv        # Metrics CSV files
 │   └── utils.py              # Utility functions script
-├── Dockerfile                # Docker configuration file
 ├── Model                     # Model folder
 ├── requirements.txt          # Python dependencies file
 └── Training                  # Training scripts folder
@@ -41,7 +39,7 @@ The structure of the project is organized as follows:
     ├── training_robust_maltutor.py       # Script to train robust MalTutor model
     ├── training_uncertainty_model.py     # Script to train uncertainty model
     └── utils.py                          # Utility functions script
-```
+
 
 
 
