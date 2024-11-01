@@ -40,7 +40,7 @@ You can find the hashes of the samples used in our experiments in the `Training/
 
 - **test_data_type**: Type of test dataset. When `evaluate_type` is `dataset`, `test_data_type` should be the opposite of `train_data_type`. For example, if `train_data_type` is `drebin`, then `test_data_type` should be `malradar`, and vice versa.
 
-- **feature_type**: Choice of detector type. Options are `drebin` (deepdrebin), `apiseq` (droidectc), and `opcodeseq` (deepdroid).
+- **feature_type**: Choice of detector type. Options are `drebin` (DeepDrebin), `apiseq` (Droidectc), and `opcodeseq` (DeepDroid).
 
 - **robust_type**: Type of model for robustness evaluation, specifically for evaluating the `maltutor model` and `rand model`. `cl` represents the `maltutor model`, while `ca` represents the `rand model`.
 
@@ -126,8 +126,15 @@ The trained model will be saved in the directory `./Training/Model/CL_robust_mod
 
 #### RQ2 & RQ3: OOD (Out-of-Distribution) Evaluation
 
-- Follow the same script usage as in RQ1, but set `evaluate_type` to `ood` and `test_data_type` to specific malware types such as `adware`, `smsware`, `scareware`, or `ransom`.
+- Follow the same script usage as in RQ1, but set `evaluate_type` to `ood` and `test_data_type` to specific malware types:  
+  - `adware`: Androzoo-Ad
+  - `smsware`: Androzoo-Sms
+  - `backdoor`: Androzoo-Backdoor
+  - `scareware`: Androzoo-Scare
+  - `ransomware`: Androzoo-Ransom
 
-
-
+  - `cic2020adware`: CICMalDroid-2020-Adware
+  - `cic2020smsware`: CICMalDroid-2020-Sms
+  - `cic2020bankingware`: CICMalDroid-2020-Bakning
+  - `cic2020riskware`: CICMalDroid-2020-Risk
 
