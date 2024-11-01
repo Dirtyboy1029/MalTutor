@@ -1,179 +1,128 @@
-# MALTUTOR
+# MalTutor
 
 ## Overview
-This code repository our paper titled **"Understanding Model Weaknesses: A Path to Strengthening DNN-Based Android Malware Detection"**. In this paper, we take the first step to train the uncertainty estimatin model. Subsequently, we clustered malware samples based on the output of the uncertainty model. Finally, we train a robust model.
+MalTutor is the implementation of our paper **"Understanding Model Weaknesses: A Path to Strengthening DNN-Based Android Malware Detection"**. The project focuses on:
+1. Training uncertainty estimation models
+2. Clustering malware samples based on uncertainty output
+3. Training robust malware detection models
 
+## Environment Setup
 
-## Project Directory Structure
+### Prerequisites
+- Ubuntu 20.04 (recommended) or Windows
+- Python 3.8.10
+- Docker
+- Additional dependencies listed in `requirements.txt`
 
-The structure of the project is organized as follows:
-
-```plaintext
-/MalTutor/
-├── dataset                   # Dataset folder
-│   ├── apk                   # APK files
-│   ├── family_source_file    # Dataset Family label csv files
-│   └── naive_pool            # Naive data pool
-├── dataset_reconstruction    # Dataset reconstruction files
-│   ├── encoder_model         # Encoder model files
-│   ├── inter_file            
-│   ├── sample_classifier.py  # Malware  script
-│   ├── uc_feature_extrctor.py# Uncertainty Feature extractor script
-│   ├── uc_metrics_csv        # Metrics CSV files
-│   └── utils.py              
-├── Model                     # Model folder
-├── requirements.txt          # Python dependencies file
-└── Training                  # Training scripts folder
-    ├── comparative_model_conf.py         # Comparative model configuration file
-    ├── config                            # Configuration files(android app hashes)
-    ├── core                              # Core module folder
-    ├── evaluate_comparative_model.py     # Script to evaluate comparative models
-    ├── evaluate_maltutor_model.py        # Script to evaluate the MalTutor and rand model
-    ├── feature_extractor.py              
-    ├── output                            # Training output folder
-    ├── training_comparative_model.py     # Script to train comparative models(Sampling, SMOTE, W-UC, and W-Family)
-    ├── training_rand_maltutor.py         # Script to train rand model
-    ├── training_robust_maltutor.py       # Script to train robust MalTutor model
-    ├── training_uncertainty_model.py     # Script to train uncertainty model
-    └── utils.py                         
-
+### Docker Installation
+1. Extract the environment package:
+```bash
+gzip -d maltutor.tar.gz
 ```
 
+2. Load the Docker image:
+```bash
+docker load -i maltutor.tar
+```
 
-## Dependencies:
-We develop the codes on Windows operation system, and run the codes on Ubuntu 20.04. The codes depend on Python 3.8.10. Other packages (e.g., TensorFlow) can be found in the `./requirements.txt`.
-## Datasets:
-You can find the hashes of the samples used in our experiments in the `Training/config` folder.
+3. Run the container:
+```bash
+docker run -it maltutor /bin/bash
+```
 
+## Project Structure
+```plaintext
+/MalTutor/
+├── dataset/                          # Dataset resources
+│   ├── apk/                         # APK files
+│   ├── family_source_file/         # Dataset family labels
+│   └── naive_pool/                 # Naive data pool
+├── dataset_reconstruction/          # Dataset processing
+│   ├── encoder_model/              # Encoder models
+│   ├── inter_file/                
+│   ├── sample_classifier.py        # Malware classification
+│   ├── uc_feature_extrctor.py     # Uncertainty features
+│   ├── uc_metrics_csv/            # Metrics storage
+│   └── utils.py                   
+├── Model/                          # Model storage
+├── requirements.txt                # Dependencies
+└── Training/                       # Training scripts
+    ├── comparative_model_conf.py   # Comparison configs
+    ├── config/                     # App hash configs
+    ├── core/                       # Core modules
+    ├── evaluate_*.py              # Evaluation scripts
+    ├── feature_extractor.py       
+    ├── output/                    # Training results
+    ├── training_*.py              # Training scripts
+    └── utils.py
+```
 
-##  0.Build Experiment Env
-1. **Extract and Load the Docker Image**
-   - First, decompress the MALTUTOR environment package:
-     ```bash
-     gzip -d maltutor.tar.gz
-     ```
-   - Next, load the extracted Docker image into Docker:
-     ```bash
-     docker load -i maltutor.tar
-     ```
+## Configuration Parameters
 
-2. **Run the Docker Container**
-   - Once loaded, start the MALTUTOR Docker container and enter an interactive Bash terminal with:
-     ```bash
-     docker run -it maltutor /bin/bash
-     ```
-   - At this point, you are inside the container environment, where you can run the code and experiments.
-
-
-### 1.Hyperparameter Description 
-
-- **train_data_type**: Type of training dataset, options are `drebin` and `malradar`, which specify the source of data used for model training.
-
-- **val_type**: Uncertainty estimation strategy. Options are `self_val` and `cross_val`, representing self-validation (self) and cross-validation (cross) strategies.
-
-- **n_clusters**: Number of malware clusters, which can be any integer greater than 1. It is recommended to try different cluster sizes and combine them with different uncertainty evaluation strategies to optimize the hard-to-learn sample set. Suggested values in this experiment are 3, 5, 7, 9, and 11.
-
-- **evaluate_type**: Type of evaluation experiment. Options are:
-  - `dataset`: Indicates that the test set is from a different source than the training set (RQ1).
-  - `ood`: Evaluates different types of malware (RQ2 and RQ3).
-
-- **test_data_type**: Type of test dataset. When `evaluate_type` is `dataset`, `test_data_type` should be the opposite of `train_data_type`. For example, if `train_data_type` is `drebin`, then `test_data_type` should be `malradar`, and vice versa.
-
-- **feature_type**: Choice of detector type. Options are `drebin` (DeepDrebin), `apiseq` (Droidectc), and `opcodeseq` (DeepDroid).
-
-- **robust_type**: Type of model for evaluation, specifically for evaluating the `maltutor model` and `rand model`. `cl` represents the `maltutor model`, while `ca` represents the `rand model`.
-
-- **comparative_type**:The type comparative model, `W-UC`, `W-Family`, `SMOTE`, and `Sampling`. Options include:
+### Key Parameters
+- `train_data_type`: Dataset source (`drebin` or `malradar`)
+- `val_type`: Validation strategy (`self_val` or `cross_val`)
+- `n_clusters`: Number of malware clusters (recommended: 3, 5, 7, 9, 11)
+- `feature_type`: Detector type:
+  - `drebin`: DeepDrebin
+  - `apiseq`: Droidectc
+  - `opcodeseq`: DeepDroid
+- `evaluate_type`: Evaluation mode:
+  - `dataset`: Cross-dataset testing
+  - `ood`: Out-of-distribution testing
+- `test_data_type`: Test dataset selection
+- `robust_type`: Model type (`cl` for MalTutor, `ca` for random)
+- `comparative_type`: Baseline models:
   - `smote`: SMOTE model
   - `sampling`: Sampling model
   - `weight`: W-Family model
   - `cls`: W-UC model
 
+## Usage Guide
 
-### 2. Uncertainty Estimation and Malware Sample Classification 
+### 1. Uncertainty Estimation & Clustering
 
-1. **Estimate Uncertainty**
-   - Navigate to the `Training` directory:
-     ```bash
-     cd Training
-     ```
-   - Run the following command to train and evaluate the uncertainty model:
-     ```bash
-     python3.8 training_uncertainty_model.py -train_data_type drebin -val_type self_val -feature_type drebin
-     ```
-   - Estimate uncertainty of samples based on the self-validation strategy, using the `drebin` dataset and the `deepdrebin` model.
-   - Upon completion, `bayesian` and `vanilla` folders will be created in `./Training/output/drebin/drebin/self_val` to store the model outputs.
+```bash
+# 1. Train uncertainty model
+cd Training
+python3.8 training_uncertainty_model.py -train_data_type drebin -val_type self_val -feature_type drebin
 
-2. **Extract Uncertainty Metrics and Save Features**
-   - Go to the `dataset_reconstruction` directory:
-     ```bash
-     cd dataset_reconstruction
-     ```
-   - Run the following command to extract features and calculate relevant metrics from the model's output:
-     ```bash
-     python3.8 uc_feature_extrctor.py -train_data_type drebin -val_type self_val -feature_type drebin
-     ```
-   - The metrics will be saved as a CSV file at `./dataset_reconstruction/uc_metrics_csv/drebin_drebin_self_val.csv`.
+# 2. Extract uncertainty features
+cd dataset_reconstruction
+python3.8 uc_feature_extrctor.py -train_data_type drebin -val_type self_val -feature_type drebin
 
-3. **Cluster Malware Samples**
-   - Run the following command to cluster the malware samples into 3 categories based on uncertainty features:
-     ```bash
-     python3.8 sample_classifier.py -train_data_type drebin -val_type self_val -feature_type drebin -n_clusters 3
-     ```
-   - The clustering model will be saved at `./dataset_reconstruction/encoder_model/drebin_drebin_self_mal.h5`, and the clustering results will be saved to `./dataset_reconstruction/inter_file/drebin_drebin_self_3.csv`.
+# 3. Cluster malware samples
+python3.8 sample_classifier.py -train_data_type drebin -val_type self_val -feature_type drebin -n_clusters 3
+```
 
+### 2. Model Training
+```bash
+cd Training
+python3.8 training_robust_maltutor.py -train_data_type drebin -val_type self -feature_type drebin -n_clusters 3
+```
 
-### 3. Train the Maltutor Model 
-- Navigate to the `Training` directory:
-     ```bash
-     cd Training
-     ```
-- Run the following command to train the Maltutor Model:
-     ```bash
-     python3.8 training_robust_maltutor.py -train_data_type drebin -val_type self -feature_type drebin -n_clusters 3
-     ```
+### 3. Evaluation
 
+#### Cross-Dataset Evaluation (RQ1)
+```bash
+# Evaluate MalTutor
+python3.8 evaluate_maltutor_model.py -evaluate_type dataset -train_data_type drebin -robust_type cl -feature_type drebin -test_data_type malradar -val_type self
 
+# Evaluate Random Model
+python3.8 evaluate_maltutor_model.py -evaluate_type dataset -train_data_type drebin -robust_type ca1 -feature_type drebin -test_data_type malradar -val_type self
 
-The trained model will be saved in the directory `./Training/Model/CL_robust_model/self/drebin_drebin_3.`
+# Evaluate Baseline Models
+python3.8 evaluate_comparative_model.py -evaluate_type dataset -train_data_type drebin -test_data_type malradar -comparative_type sampling
+```
 
-***Note: If the model files already exist in this directory, the training process will not be executed.***
+#### Out-of-Distribution Testing (RQ2 & RQ3)
+Use the same commands as above but with:
+- Set `evaluate_type` to `ood`
+- Set `test_data_type` to one of:
+  - Androzoo variants: `adware`, `smsware`, `backdoorware`, `scareware`, `ransomware`
+  - CICMalDroid-2020 variants: `cic2020adware`, `cic2020smsware`, `cic2020bankware`, `cic2020riskware`
 
-
-### 4. Model Evaluation 
-
-#### RQ1
-
-1. **Evaluate the Maltutor Model Trained on Hard-to-Learn Samples (Self-Validation Strategy)**
-   - Run the following command to evaluate the `Maltutor` model trained with self-validation strategy:
-     ```bash
-     python3.8 evaluate_maltutor_model.py -evaluate_type dataset -train_data_type drebin -robust_type cl -feature_type drebin -test_data_type malradar -val_type self
-     ```
-
-2. **Evaluate the Rand Model**
-   - Use the command below to evaluate the Rand Model (`ca1` indicates the first experiment in a series of three random experiments):
-     ```bash
-     python3.8 evaluate_maltutor_model.py -evaluate_type dataset -train_data_type drebin -robust_type ca1 -feature_type drebin -test_data_type malradar -val_type self
-     ```
-
-3. **Evaluate Comparative Models**
-   - Use the following command to evaluate different types of comparative models, including `sampling`, `smote`, `cls`, and `weight`:
-     ```bash
-     python3.8 evaluate_comparative_model.py -evaluate_type dataset -train_data_type drebin -test_data_type malradar -comparative_type sampling
-     ```
-   - Replace `sampling` with other comparative types (`smote`, `cls`, or `weight`) to evaluate different models.
-
-#### RQ2 & RQ3: OOD (Out-of-Distribution) Evaluation
-
-- Follow the same script usage as in RQ1, but set `evaluate_type` to `ood` and `test_data_type` to specific malware types:  
-  - `adware`: Androzoo-Ad
-  - `smsware`: Androzoo-Sms
-  - `backdoorware`: Androzoo-Backdoor
-  - `scareware`: Androzoo-Scare
-  - `ransomware`: Androzoo-Ransom
-
-  - `cic2020adware`: CICMalDroid-2020-Adware
-  - `cic2020smsware`: CICMalDroid-2020-Sms
-  - `cic2020bankware`: CICMalDroid-2020-Banking
-  - `cic2020riskware`: CICMalDroid-2020-Risk
-
+## Notes
+- Model files are saved in `./Training/Model/CL_robust_model/self/drebin_drebin_3`
+- Training will be skipped if model files already exist
+- Dataset hashes can be found in `Training/config` folder
