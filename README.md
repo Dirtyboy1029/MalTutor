@@ -101,7 +101,7 @@ You can find the hashes of the samples used in our experiments in the `Training/
      ```bash
      python3.8 training_uncertainty_model.py -train_data_type drebin -val_type self_val -feature_type drebin
      ```
-   - This step evaluates the uncertainty of samples based on the self-validation strategy, using the `drebin` dataset and the `deepdrebin` model.
+   - Estimate uncertainty of samples based on the self-validation strategy, using the `drebin` dataset and the `deepdrebin` model.
    - Upon completion, `bayesian` and `vanilla` folders will be created in `./Training/output/drebin/drebin/self_val` to store the model outputs.
 
 2. **Extract Uncertainty Metrics and Save Features**
