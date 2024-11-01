@@ -97,7 +97,8 @@ You can find the hashes of the samples used in our experiments in the `Training/
 
 
 The trained model will be saved in the directory ./Training/Model/CL_robust_model/self/drebin_drebin_3.
-Note: If the model files already exist in this directory, the training process will not be executed.
+
+***Note: If the model files already exist in this directory, the training process will not be executed.***
 
 
 ### 4. Model Evaluation 
@@ -126,3 +127,7 @@ Note: If the model files already exist in this directory, the training process w
 #### RQ2 & RQ3: OOD (Out-of-Distribution) Evaluation
 
 - Follow the same script usage as in RQ1, but set `evaluate_type` to `ood` and `test_data_type` to specific malware types such as `adware`, `smsware`, `scareware`, or `ransom`.
+
+
+
+
