@@ -81,9 +81,9 @@ You can find the hashes of the samples used in our experiments in the `Training/
 
 - **feature_type**: Choice of detector type. Options are `drebin` (DeepDrebin), `apiseq` (Droidectc), and `opcodeseq` (DeepDroid).
 
-- **robust_type**: Type of model for robustness evaluation, specifically for evaluating the `maltutor model` and `rand model`. `cl` represents the `maltutor model`, while `ca` represents the `rand model`.
+- **robust_type**: Type of model for evaluation, specifically for evaluating the `maltutor model` and `rand model`. `cl` represents the `maltutor model`, while `ca` represents the `rand model`.
 
-- **comparative_type**: Strategy for comparing model performance, used to evaluate `W-UC`, `W-Family`, `SMOTE`, and `Sampling`. Options include:
+- **comparative_type**:The type comparative model, `W-UC`, `W-Family`, `SMOTE`, and `Sampling`. Options include:
   - `smote`: SMOTE model
   - `sampling`: Sampling model
   - `weight`: W-Family model
