@@ -3,10 +3,47 @@
 ## Overview
 This code repository our paper titled **"Understanding Model Weaknesses: A Path to Strengthening DNN-Based Android Malware Detection"**. In this paper, we take the first step to train the uncertainty estimatin model. Subsequently, we clustered malware samples based on the output of the uncertainty model. Finally, we train a robust model.
 
+
+## Project Directory Structure
+
+The structure of the project is organized as follows:
+/MalTutor/
+├── dataset
+│   ├── apk
+│   ├── family_source_file
+│   └── naive_pool
+├── dataset_reconstruction
+│   ├── encoder_model
+│   ├── inter_file
+│   ├── __pycache__
+│   ├── sample_classifier.py
+│   ├── uc_feature_extrctor.py
+│   ├── uc_metrics_csv
+│   └── utils.py
+├── Dockerfile
+├── Model
+├── requirements.txt
+└── Training
+    ├── comparative_model_conf.py
+    ├── config
+    ├── core
+    ├── evaluate_comparative_model.py
+    ├── evaluate_maltutor_model.py
+    ├── feature_extractor.py
+    ├── output
+    ├── training_comparative_model.py
+    ├── training_rand_maltutor.py
+    ├── training_robust_maltutor.py
+    ├── training_uncertainty_model.py
+    └── utils.py
+
+
+
 ## Dependencies:
 We develop the codes on Windows operation system, and run the codes on Ubuntu 20.04. The codes depend on Python 3.8.10. Other packages (e.g., TensorFlow) can be found in the `./requirements.txt`.
 ## Datasets:
 You can find the hashes of the samples used in our experiments in the `Training/config` folder.
+
 
 ##  0.Build Experiment Env
 1. **Extract and Load the Docker Image**
