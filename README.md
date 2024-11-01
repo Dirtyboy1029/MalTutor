@@ -12,30 +12,30 @@ The structure of the project is organized as follows:
 /MalTutor/
 ├── dataset                   # Dataset folder
 │   ├── apk                   # APK files
-│   ├── family_source_file    # Family source files
+│   ├── family_source_file    # Dataset Family label csv files
 │   └── naive_pool            # Naive data pool
 ├── dataset_reconstruction    # Dataset reconstruction files
 │   ├── encoder_model         # Encoder model files
-│   ├── inter_file            # Intermediate files
-│   ├── sample_classifier.py  # Sample classifier script
-│   ├── uc_feature_extrctor.py# Feature extractor script
+│   ├── inter_file            
+│   ├── sample_classifier.py  # Malware  script
+│   ├── uc_feature_extrctor.py# Uncertainty Feature extractor script
 │   ├── uc_metrics_csv        # Metrics CSV files
-│   └── utils.py              # Utility functions script
+│   └── utils.py              
 ├── Model                     # Model folder
 ├── requirements.txt          # Python dependencies file
 └── Training                  # Training scripts folder
     ├── comparative_model_conf.py         # Comparative model configuration file
-    ├── config                            # Configuration files
+    ├── config                            # Configuration files(android app hashes)
     ├── core                              # Core module folder
     ├── evaluate_comparative_model.py     # Script to evaluate comparative models
-    ├── evaluate_maltutor_model.py        # Script to evaluate the MalTutor model
-    ├── feature_extractor.py              # Feature extraction script
+    ├── evaluate_maltutor_model.py        # Script to evaluate the MalTutor and rand model
+    ├── feature_extractor.py              
     ├── output                            # Training output folder
-    ├── training_comparative_model.py     # Script to train comparative models
-    ├── training_rand_maltutor.py         # Script to train random MalTutor model
+    ├── training_comparative_model.py     # Script to train comparative models(Sampling, SMOTE, W-UC, and W-Family)
+    ├── training_rand_maltutor.py         # Script to train rand model
     ├── training_robust_maltutor.py       # Script to train robust MalTutor model
     ├── training_uncertainty_model.py     # Script to train uncertainty model
-    └── utils.py                          # Utility functions script
+    └── utils.py                         
 
 ```
 
