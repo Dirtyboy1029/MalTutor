@@ -177,6 +177,6 @@ The trained model will be saved in the directory `./Training/Model/CL_robust_mod
 
   - `cic2020adware`: CICMalDroid-2020-Adware
   - `cic2020smsware`: CICMalDroid-2020-Sms
-  - `cic2020bankware`: CICMalDroid-2020-Bakning
+  - `cic2020bankware`: CICMalDroid-2020-Banking
   - `cic2020riskware`: CICMalDroid-2020-Risk
 
