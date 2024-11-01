@@ -40,7 +40,7 @@ The structure of the project is organized as follows:
     ├── training_uncertainty_model.py     # Script to train uncertainty model
     └── utils.py                          # Utility functions script
 
-
+```
 
 
 ## Dependencies:
