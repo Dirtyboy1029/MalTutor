@@ -7,35 +7,41 @@ This code repository our paper titled **"Understanding Model Weaknesses: A Path 
 ## Project Directory Structure
 
 The structure of the project is organized as follows:
+## Project Directory Structure
+
+The structure of the project is organized as follows:
+
+```plaintext
 /MalTutor/
-├── dataset
-│   ├── apk
-│   ├── family_source_file
-│   └── naive_pool
-├── dataset_reconstruction
-│   ├── encoder_model
-│   ├── inter_file
-│   ├── __pycache__
-│   ├── sample_classifier.py
-│   ├── uc_feature_extrctor.py
-│   ├── uc_metrics_csv
-│   └── utils.py
-├── Dockerfile
-├── Model
-├── requirements.txt
-└── Training
-    ├── comparative_model_conf.py
-    ├── config
-    ├── core
-    ├── evaluate_comparative_model.py
-    ├── evaluate_maltutor_model.py
-    ├── feature_extractor.py
-    ├── output
-    ├── training_comparative_model.py
-    ├── training_rand_maltutor.py
-    ├── training_robust_maltutor.py
-    ├── training_uncertainty_model.py
-    └── utils.py
+├── dataset                   # Dataset folder
+│   ├── apk                   # APK files
+│   ├── family_source_file    # Family source files
+│   └── naive_pool            # Naive data pool
+├── dataset_reconstruction    # Dataset reconstruction files
+│   ├── encoder_model         # Encoder model files
+│   ├── inter_file            # Intermediate files
+│   ├── __pycache__           # Cached files
+│   ├── sample_classifier.py  # Sample classifier script
+│   ├── uc_feature_extrctor.py# Feature extractor script
+│   ├── uc_metrics_csv        # Metrics CSV files
+│   └── utils.py              # Utility functions script
+├── Dockerfile                # Docker configuration file
+├── Model                     # Model folder
+├── requirements.txt          # Python dependencies file
+└── Training                  # Training scripts folder
+    ├── comparative_model_conf.py         # Comparative model configuration file
+    ├── config                            # Configuration files
+    ├── core                              # Core module folder
+    ├── evaluate_comparative_model.py     # Script to evaluate comparative models
+    ├── evaluate_maltutor_model.py        # Script to evaluate the MalTutor model
+    ├── feature_extractor.py              # Feature extraction script
+    ├── output                            # Training output folder
+    ├── training_comparative_model.py     # Script to train comparative models
+    ├── training_rand_maltutor.py         # Script to train random MalTutor model
+    ├── training_robust_maltutor.py       # Script to train robust MalTutor model
+    ├── training_uncertainty_model.py     # Script to train uncertainty model
+    └── utils.py                          # Utility functions script
+
 
 
 
