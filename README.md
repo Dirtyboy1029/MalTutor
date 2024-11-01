@@ -26,11 +26,12 @@ You can find the hashes of the samples used in our experiments in the `Training/
      ```
    - At this point, you are inside the container environment, where you can run the code and experiments.
 
+
 ### 1.Hyperparameter Description 
 
 - **train_data_type**: Type of training dataset, options are `drebin` and `malradar`, which specify the source of data used for model training.
 
-- **val_type**: Uncertainty evaluation strategy for model assessment. Options are `self_val` and `cross_val`, representing self-validation (self) and cross-validation (cross) strategies.
+- **val_type**: Uncertainty estimation strategy. Options are `self_val` and `cross_val`, representing self-validation (self) and cross-validation (cross) strategies.
 
 - **n_clusters**: Number of malware clusters, which can be any integer greater than 1. It is recommended to try different cluster sizes and combine them with different uncertainty evaluation strategies to optimize the hard-to-learn sample set. Suggested values in this experiment are 3, 5, 7, 9, and 11.
 
@@ -44,16 +45,16 @@ You can find the hashes of the samples used in our experiments in the `Training/
 
 - **robust_type**: Type of model for robustness evaluation, specifically for evaluating the `maltutor model` and `rand model`. `cl` represents the `maltutor model`, while `ca` represents the `rand model`.
 
-- **comparative_type**: Strategy for comparing model performance, used to evaluate `w-uc`, `w-family`, `smote`, and `sampling`. Options include:
+- **comparative_type**: Strategy for comparing model performance, used to evaluate `W-UC`, `W-Family`, `SMOTE`, and `Sampling`. Options include:
   - `smote`: SMOTE model
   - `sampling`: Sampling model
   - `weight`: W-Family model
   - `cls`: W-UC model
 
 
-### 2. Uncertainty Evaluation and Malware Sample Classification 
+### 2. Uncertainty Estimation and Malware Sample Classification 
 
-1. **Evaluate Uncertainty**
+1. **Estimate Uncertainty**
    - Navigate to the `Training` directory:
      ```bash
      cd Training
@@ -65,7 +66,7 @@ You can find the hashes of the samples used in our experiments in the `Training/
    - This step evaluates the uncertainty of samples based on the self-validation strategy, using the `drebin` dataset and the `deepdrebin` model.
    - Upon completion, `bayesian` and `vanilla` folders will be created in `./Training/output/drebin/drebin/self_val` to store the model outputs.
 
-2. **Extract Uncertainty Features and Save Metrics**
+2. **Extract Uncertainty Metrics and Save Features**
    - Go to the `dataset_reconstruction` directory:
      ```bash
      cd dataset_reconstruction
@@ -112,7 +113,7 @@ The trained model will be saved in the directory `./Training/Model/CL_robust_mod
      ```
 
 2. **Evaluate the Rand Model**
-   - Use the command below to evaluate the Rand Model (`ca1` indicates the first of three control models):
+   - Use the command below to evaluate the Rand Model (`ca1` indicates the first experiment in a series of three random experiments):
      ```bash
      python3.8 evaluate_maltutor_model.py -evaluate_type dataset -train_data_type drebin -robust_type ca1 -feature_type drebin -test_data_type malradar -val_type self
      ```
