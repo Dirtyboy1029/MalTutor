@@ -7,9 +7,6 @@ This code repository our paper titled **"Understanding Model Weaknesses: A Path 
 ## Project Directory Structure
 
 The structure of the project is organized as follows:
-## Project Directory Structure
-
-The structure of the project is organized as follows:
 
 ```plaintext
 /MalTutor/
