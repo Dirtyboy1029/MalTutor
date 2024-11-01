@@ -45,10 +45,10 @@ You can find the hashes of the samples used in our experiments in the `Training/
 - **robust_type**: Type of model for robustness evaluation, specifically for evaluating the `maltutor model` and `rand model`. `cl` represents the `maltutor model`, while `ca` represents the `rand model`.
 
 - **comparative_type**: Strategy for comparing model performance, used to evaluate `w-uc`, `w-family`, `smote`, and `sampling`. Options include:
-  - `smote`: smote model
-  - `sampling`: sampling model
-  - `weight`: w-family model
-  - `cls`: w-uc model
+  - `smote`: SMOTE model
+  - `sampling`: Sampling model
+  - `weight`: W-Family model
+  - `cls`: W-UC model
 
 
 ### 2. Uncertainty Evaluation and Malware Sample Classification 
